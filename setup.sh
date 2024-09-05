@@ -2,7 +2,7 @@
 
 # Get VDI Client
 cd /usr/local/share
-apt install python3-pip python3-tk python3-proxmoxer python3-requests virt-viewer network-manager net-tools
+apt install -y python3-pip python3-tk python3-proxmoxer python3-requests virt-viewer network-manager net-tools
 pip3 install "PySimpleGUI<5.0.0" --break-system-packages
 git clone https://github.com/joshpatten/PVE-VDIClient.git
 
@@ -26,6 +26,7 @@ while true; do
     startx /usr/local/bin/vdiclient.py
 done
 EOL
+
 chmod a+x /opt/kiosh.sh
 cat > /etc/systemd/system/kiosk.service <<EOL
 [Unit]
