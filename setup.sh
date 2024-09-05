@@ -10,7 +10,7 @@ cd ./PVE-VDIClient/
 chmod +x requirements.sh
 ./requirements.sh
 mkdir /etc/vdiclient
-cp /home/vdi/vdiclient.ini /etc/vdiclient/vdiclient.ini
+cp ../vdiclient.ini /etc/vdiclient/vdiclient.ini
 cp vdiclient.py /usr/local/bin
 chmod +x /usr/local/bin/vdiclient.py
 apt install -y — no-install-recommends xorg openbox
