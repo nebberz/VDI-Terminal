@@ -1,2 +1,2 @@
 # VDI-Terminal
-VDI Terminal Config
+VDI Terminal Config using Josh Patten's VDI config

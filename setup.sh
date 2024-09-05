@@ -1,7 +1,7 @@
 #! /bin/bash
 
 cd /usr/local/share
-apt install python3-pip python3-tk virt-viewer git
+apt install python3-pip python3-tk virt-viewer
 git clone https://github.com/joshpatten/PVE-VDIClient.git
 cd ./PVE-VDIClient/
 chmod +x requirements.sh
