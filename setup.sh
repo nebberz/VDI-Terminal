@@ -10,7 +10,7 @@ cd ./PVE-VDIClient/
 chmod +x requirements.sh
 ./requirements.sh
 mkdir /etc/vdiclient
-cp vdiclient.ini /etc/vdiclient/vdiclient.ini
+cp /home/vdi/vdiclient.ini /etc/vdiclient/vdiclient.ini
 cp vdiclient.py /usr/local/bin
 chmod +x /usr/local/bin/vdiclient.py
 apt install -y — no-install-recommends xorg openbox
@@ -54,7 +54,5 @@ Type=idle
 EOL
 echo NAutoVTs=1 >> /etc/systemd/logind.conf
 echo ReserveVT=1 >> /etc/systemd/logind.conf
-
-# Enable Wifi
 
 reboot
