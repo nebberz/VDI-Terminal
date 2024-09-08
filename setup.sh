@@ -10,10 +10,10 @@ git clone https://github.com/joshpatten/PVE-VDIClient.git
 mkdir /etc/vdiclient
 cp vdiclient.ini /etc/vdiclient/vdiclient.ini
 cd ./PVE-VDIClient/
-# chmod +x requirements.sh
+# chmod +x requirements.sh # pip3 broken package install, moved packages to apt
 cp vdiclient.py /usr/local/bin
 chmod +x /usr/local/bin/vdiclient.py
-apt install -y —-no-install-recommends xorg openbox
+apt install -y xorg openbox # —-no-install-recommends
 echo > /opt/kiosk.sh <<EOL
 #! /bin/bash
 
@@ -46,10 +46,11 @@ systemctl enable kiosk.service
 
 #Enable Auto Login
 mkdir /etc/systemd/system/getty@tty1.service.d/
+# ExecStart=-startx /etc/X11/Xsession /opt/kiosk.sh
 echo > /etc/systemd/system/getty@tty1.service.d/override.conf <<EOL
 [Service]
 User=vdi
-ExecStart=-startx /etc/X11/Xsession /opt/kiosk.sh
+ExecStart=/bin/bash
 Type=idle
 SuccessExitStatus=143
 TimeoutStopSec=10
