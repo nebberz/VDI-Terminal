@@ -28,6 +28,8 @@ done
 EOL
 
 chmod a+x /opt/kiosk.sh
+
+# Service Option 
 # echo > /etc/systemd/system/kiosk.service <<EOL
 # [Unit]
 # Description=The Allens VDI
@@ -46,6 +48,8 @@ chmod a+x /opt/kiosk.sh
 
 #Enable Auto Login
 mkdir /etc/systemd/system/getty@tty1.service.d
+
+#Autologin Option
 echo > /etc/systemd/system/getty@tty1.service.d/override.conf <<EOL
 [Service]
 User=vdi
@@ -56,9 +60,6 @@ TimeoutStopSec=10
 Restart=on-failure
 RestartSec=5
 EOL
-echo NAutoVTs=1 >> /etc/systemd/logind.conf
-echo ReserveVT=1 >> /etc/systemd/logind.conf
-NAutoVTs=1
 sed -i '/#NAutoVTs=6/c\NAutoVTs=1' /etc/systemd/logind.conf
 sed -i '/#ReserveVT=6/c\ReserveVT=1' /etc/systemd/logind.conf
 # Enable sound
