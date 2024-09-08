@@ -48,10 +48,10 @@ chmod a+x /opt/kiosk.sh
 
 # Autologin Option
 mkdir /etc/systemd/system/getty@tty1.service.d
-echo > /etc/systemd/system/getty@tty1.service.d/override.conf <<EOL
+cat > /etc/systemd/system/getty@tty1.service.d/override.conf <<EOL
 [Service]
 User=vdi
-# ExecStart=-startx /etc/X11/Xsession /opt/kiosk.sh
+ExecStart=-startx /etc/X11/Xsession /opt/kiosk.sh
 Type=idle
 SuccessExitStatus=143
 TimeoutStopSec=10
