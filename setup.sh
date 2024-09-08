@@ -46,10 +46,8 @@ chmod a+x /opt/kiosk.sh
 
 # systemctl enable kiosk.service
 
-#Enable Auto Login
+# Autologin Option
 mkdir /etc/systemd/system/getty@tty1.service.d
-
-#Autologin Option
 echo > /etc/systemd/system/getty@tty1.service.d/override.conf <<EOL
 [Service]
 User=vdi
