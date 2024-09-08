@@ -2,7 +2,7 @@
 
 # Get VDI Client
 cd /usr/local/share
-apt install -y python3-pip python3-tk python3-proxmoxer python3-requests virt-viewer network-manager net-tools alsa-base
+apt install -y python3-pip python3-tk python3-proxmoxer python3-requests virt-viewer network-manager net-tools gstreamer1.0* pipewire*
 pip3 install "PySimpleGUI<5.0.0" --break-system-packages
 git clone https://github.com/joshpatten/PVE-VDIClient.git
 
@@ -63,5 +63,10 @@ echo ReserveVT=1 >> /etc/systemd/logind.conf
 sed -i '/GRUB_CMDLINE_LINUX_DEFAULT=""/c\GRUB_CMDLINE_LINUX_DEFAULT="intel_iommu=on"' /etc/default/grub
 usermod -aG audio vdi
 usermod -aG audio root
+
+# Enable wifi
+wget http://int-web.theallens.house/wifi-config.sh
+chmod +x wifi-config.sh
+./wifi-config.sh
 
 reboot
