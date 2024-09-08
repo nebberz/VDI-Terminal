@@ -10,7 +10,7 @@ pip3 install "PySimpleGUI<5.0.0" --break-system-packages
 # chmod +x requirements.sh # pip3 broken package install, moved packages to apt
 cd /usr/local/share
 git clone https://github.com/joshpatten/PVE-VDIClient.git
-cd ./PVE-VDIClient/
+cd /usr/local/share/PVE-VDIClient/
 cp vdiclient.py /usr/local/bin
 chmod +x /usr/local/bin/vdiclient.py
 apt install -y xorg openbox # —-no-install-recommends
@@ -45,8 +45,8 @@ chmod a+x /opt/kiosk.sh
 # systemctl enable kiosk.service
 
 #Enable Auto Login
-mkdir /etc/systemd/system/getty@tty1.service.d/
-echo > /etc/systemd/system/getty@tty1.service.d/override.conf <<EOL
+mkdir /etc/systemd/system/getty@tty1.service.d
+cat > /etc/systemd/system/getty@tty1.service.d/override.conf <<EOL
 [Service]
 User=vdi
 # ExecStart=-startx /etc/X11/Xsession /opt/kiosk.sh
