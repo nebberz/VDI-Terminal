@@ -27,7 +27,7 @@ while true; do
 done
 EOL
 
-chmod a+x /opt/kiosh.sh
+chmod a+x /opt/kiosk.sh
 echo > /etc/systemd/system/kiosk.service <<EOL
 [Unit]
 Description=The Allens VDI
