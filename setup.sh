@@ -14,7 +14,7 @@ cd /usr/local/share/PVE-VDIClient/
 cp vdiclient.py /usr/local/bin
 chmod +x /usr/local/bin/vdiclient.py
 apt install -y xorg openbox # —-no-install-recommends
-echo > /opt/kiosk.sh <<EOL
+cat > /opt/kiosk.sh <<EOL
 #! /bin/bash
 
 xset -dpms
