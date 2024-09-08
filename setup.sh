@@ -23,7 +23,7 @@ xset s off
 openbox-session &
 
 while true; do
-    startx /etc/X11/Xsession /etc/vdiclient/vdiclient.py
+    startx /etc/X11/Xsession /usr/local/bin/vdiclient.py
 done
 EOL
 
@@ -51,7 +51,8 @@ mkdir /etc/systemd/system/getty@tty1.service.d
 cat > /etc/systemd/system/getty@tty1.service.d/override.conf <<EOL
 [Service]
 User=vdi
-ExecStart=startx /etc/X11/Xsession /etc/vdiclient/vdiclient.py
+ExecStart=
+ExecStart=/opt/kiosk.sh
 Type=idle
 SuccessExitStatus=143
 TimeoutStopSec=10
