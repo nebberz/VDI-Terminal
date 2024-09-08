@@ -28,29 +28,28 @@ done
 EOL
 
 chmod a+x /opt/kiosk.sh
-echo > /etc/systemd/system/kiosk.service <<EOL
-[Unit]
-Description=The Allens VDI
-After=network-online.target
-Wants=network-online.target
+# echo > /etc/systemd/system/kiosk.service <<EOL
+# [Unit]
+# Description=The Allens VDI
+# After=network-online.target
+# Wants=network-online.target
 
-[Service]
-USER=vdi
-ExecStart=startx /etc/X11/Xsession /opt/kiosk.sh
+# [Service]
+# USER=vdi
+# ExecStart=startx /etc/X11/Xsession /opt/kiosk.sh
 
-[Install]
-WantedBy=multi-user.target
-EOL
+# [Install]
+# WantedBy=multi-user.target
+# EOL
 
-systemctl enable kiosk.service
+# systemctl enable kiosk.service
 
 #Enable Auto Login
 mkdir /etc/systemd/system/getty@tty1.service.d/
-# ExecStart=-startx /etc/X11/Xsession /opt/kiosk.sh
 echo > /etc/systemd/system/getty@tty1.service.d/override.conf <<EOL
 [Service]
 User=vdi
-ExecStart=/bin/bash
+# ExecStart=-startx /etc/X11/Xsession /opt/kiosk.sh
 Type=idle
 SuccessExitStatus=143
 TimeoutStopSec=10
