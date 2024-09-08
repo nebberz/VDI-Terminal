@@ -46,7 +46,7 @@ chmod a+x /opt/kiosk.sh
 
 #Enable Auto Login
 mkdir /etc/systemd/system/getty@tty1.service.d
-cat > /etc/systemd/system/getty@tty1.service.d/override.conf <<EOL
+echo > /etc/systemd/system/getty@tty1.service.d/override.conf <<EOL
 [Service]
 User=vdi
 # ExecStart=-startx /etc/X11/Xsession /opt/kiosk.sh
@@ -58,7 +58,9 @@ RestartSec=5
 EOL
 echo NAutoVTs=1 >> /etc/systemd/logind.conf
 echo ReserveVT=1 >> /etc/systemd/logind.conf
-
+NAutoVTs=1
+sed -i '/#NAutoVTs=6/c\NAutoVTs=1' /etc/systemd/logind.conf
+sed -i '/#ReserveVT=6/c\ReserveVT=1' /etc/systemd/logind.conf
 # Enable sound
 sed -i '/GRUB_CMDLINE_LINUX_DEFAULT=""/c\GRUB_CMDLINE_LINUX_DEFAULT="intel_iommu=on"' /etc/default/grub
 usermod -aG audio vdi
