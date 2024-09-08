@@ -2,7 +2,7 @@
 
 # Get VDI Client
 cd /usr/local/share
-apt install -y python3-pip python3-tk python3-proxmoxer python3-requests virt-viewer network-manager net-tools gstreamer1.0* pipewire*
+apt install -y python3-pip python3-tk python3-proxmoxer python3-requests network-manager net-tools gstreamer1.0* pipewire* virt-viewer 
 pip3 install "PySimpleGUI<5.0.0" --break-system-packages
 git clone https://github.com/joshpatten/PVE-VDIClient.git
 
