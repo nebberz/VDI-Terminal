@@ -3,7 +3,6 @@
 #Move Config File
 mkdir /etc/vdiclient
 cp vdiclient.ini /etc/vdiclient/vdiclient.ini
-cd ./PVE-VDIClient/
 
 # Get VDI Client
 apt install -y python3-pip python3-tk python3-proxmoxer python3-requests network-manager net-tools gstreamer1.0* pipewire* virt-viewer 
@@ -11,6 +10,7 @@ pip3 install "PySimpleGUI<5.0.0" --break-system-packages
 # chmod +x requirements.sh # pip3 broken package install, moved packages to apt
 cd /usr/local/share
 git clone https://github.com/joshpatten/PVE-VDIClient.git
+cd ./PVE-VDIClient/
 cp vdiclient.py /usr/local/bin
 chmod +x /usr/local/bin/vdiclient.py
 apt install -y xorg openbox # —-no-install-recommends
