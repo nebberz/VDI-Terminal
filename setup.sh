@@ -51,7 +51,7 @@ mkdir /etc/systemd/system/getty@tty1.service.d
 cat > /etc/systemd/system/getty@tty1.service.d/override.conf <<EOL
 [Service]
 User=vdi
-ExecStart=-startx /etc/X11/Xsession /opt/kiosk.sh
+ExecStart=/opt/kiosk.sh
 Type=idle
 SuccessExitStatus=143
 TimeoutStopSec=10
