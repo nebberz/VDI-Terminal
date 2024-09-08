@@ -23,7 +23,7 @@ xset s off
 openbox-session &
 
 while true; do
-    startx /usr/local/bin/vdiclient.py
+    startx /etc/X11/Xsession /etc/vdiclient/vdiclient.py
 done
 EOL
 
@@ -38,7 +38,7 @@ chmod a+x /opt/kiosk.sh
 
 # [Service]
 # USER=vdi
-# ExecStart=startx /etc/X11/Xsession /opt/kiosk.sh
+# ExecStart=/opt/kiosk.sh
 
 # [Install]
 # WantedBy=multi-user.target
