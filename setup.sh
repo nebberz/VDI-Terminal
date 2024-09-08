@@ -68,5 +68,5 @@ usermod -aG audio root
 wget http://int-web.theallens.house/wifi-config.sh
 chmod +x wifi-config.sh
 ./wifi-config.sh
-
+#SayAPrayer
 reboot
